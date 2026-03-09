@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, Image, Button, Alert, StyleSheet, ScrollView } from 'react-native';
 import { Recipe } from '../types/Recipe';
 
 interface Props {
@@ -11,34 +11,70 @@ const RecipeDetailScreen: React.FC<Props> = ({ route }) => {
   const [favorite, setFavorite] = useState(false);
 
   const toggleFavorite = () => {
-    setFavorite(!favorite);
+    const newFavorite = !favorite;
+    setFavorite(newFavorite);
     Alert.alert(
       'Favori',
-      favorite ? 'Recette retirée des favoris' : 'Recette ajoutée aux favoris'
+      newFavorite ? 'Recette ajoutée aux favoris' : 'Recette retirée des favoris'
     );
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Image source={{ uri: recipe.image }} style={styles.image} />
       <Text style={styles.title}>{recipe.title}</Text>
+
       <Text style={styles.subtitle}>Ingrédients :</Text>
       {recipe.ingredients.map((ing, index) => (
-        <Text key={index}>• {ing}</Text>
+        <Text key={index} style={styles.ingredient}>
+          • {ing}
+        </Text>
       ))}
-      <Button
-        title={favorite ? 'Retirer des favoris' : 'Mettre en favori'}
-        onPress={toggleFavorite}
-      />
-    </View>
+
+      <View style={styles.buttonContainer}>
+        <Button
+          title={favorite ? 'Retirer des favoris' : 'Mettre en favori'}
+          onPress={toggleFavorite}
+          color={favorite ? '#FF6347' : '#32CD32'} // couleur dynamique pour le bouton
+        />
+      </View>
+    </ScrollView>
   );
 };
 
 export default RecipeDetailScreen;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20 },
-  image: { width: '100%', height: 200, borderRadius: 10, marginBottom: 15 },
-  title: { fontSize: 24, fontWeight: 'bold' },
-  subtitle: { fontSize: 18, marginTop: 15, marginBottom: 10 }
+  container: {
+    padding: 20,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+  image: {
+    width: '100%',
+    height: 250,
+    borderRadius: 15,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 15,
+  },
+  subtitle: {
+    fontSize: 20,
+    fontWeight: '600',
+    alignSelf: 'flex-start',
+    marginBottom: 10,
+  },
+  ingredient: {
+    fontSize: 16,
+    marginLeft: 10,
+    marginBottom: 5,
+  },
+  buttonContainer: {
+    marginTop: 25,
+    width: '100%',
+  },
 });
