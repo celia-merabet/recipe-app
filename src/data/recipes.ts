@@ -14,7 +14,7 @@ const recipes: Recipe[] = [
     title: 'Poulet Curry',
     prepTime: '35 min',
     difficulty: 'Moyen',
-    image: 'https://images.unsplash.com/photo-1604908176997-431d3b1e0baf',
+    image: 'https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/elle-a-table/les-dossiers-de-la-redaction/dossier-de-la-redac/mon-panier-de-printemps-pour-5-diners-cles-en-main/menu-de-printemps-curry-poulet/35728350-1-fre-FR/Menu-de-printemps-Curry-Poulet.jpg',
     ingredients: ['Poulet', 'Lait de coco', 'Curry', 'Oignon', 'Riz']
   },
   {
