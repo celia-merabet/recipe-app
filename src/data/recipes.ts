@@ -24,6 +24,22 @@ const recipes: Recipe[] = [
     difficulty: 'Facile',
     image: 'https://images.unsplash.com/photo-1550304943-4f24f54ddde9',
     ingredients: ['Salade', 'Poulet', 'Parmesan', 'Croutons', 'Sauce césar']
+  },
+  {
+    id: '4',
+    title: 'Tacos Mexicains',
+    prepTime: '25 min',
+    difficulty: 'Moyen',
+    image: 'https://images.unsplash.com/photo-1617196032182-6f0a35c97920',
+    ingredients: ['Tortillas', 'Viande hachée', 'Laitue', 'Tomate', 'Fromage', 'Salsa']
+  },
+  {
+    id: '5',
+    title: 'Pancakes aux myrtilles',
+    prepTime: '30 min',
+    difficulty: 'Facile',
+    image: 'https://images.unsplash.com/photo-1587730168040-03e2be3fcd9c',
+    ingredients: ['Farine', 'Lait', 'Oeufs', 'Sucre', 'Myrtilles', 'Beurre']
   }
 ];
 
